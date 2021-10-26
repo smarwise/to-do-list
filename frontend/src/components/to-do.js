@@ -1,4 +1,5 @@
 function ToDo({listItemName, setToDos, toDos, toDo}){
+    
     const deleteHandler = () => {
         setToDos(toDos.filter(el => el.id !== toDo.id))
     };

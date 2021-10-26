@@ -2,21 +2,22 @@
 
 function Form({setInputText, toDos, setToDos, inputText, setStatus}){
     const inputTextHandler = (e) => {
-        console.log("here");
-        if (e.target.value == "")
-            return ;
-        else
-            setInputText(e.target.value);
+        setInputText(e.target.value);
     };
 
+    //make new to-do with submitted text
     const submitToDoHandler = (e) => {
         e.preventDefault();
-        setToDos([
-            ...toDos, {text: inputText, completed: false, id: Math.random() * 1000}
-        ]);
+        if (inputText.trim() !== "")
+        {
+            setToDos([
+                ...toDos, {text: inputText, completed: false, id: Math.random() * 1000}
+            ]);
+        }
         setInputText("");
     };
 
+    //change status (all, completed, uncompleted)
     const statusHandler = (e) => {
         setStatus(e.target.value);
         console.log(e.target.value);
